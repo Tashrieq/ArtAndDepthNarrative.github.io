@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Website</title>
+  
+  <!-- Google Font for headings (Calligraphy style alternative) -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* GENERAL STYLES */
+    body {
+      margin: 0;
+      font-family: "Times New Roman", serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Great Vibes', cursive;
+      color: white;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: black;
+      border-bottom: 1px solid silver;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: silver;
+      text-shadow: 0 0 5px silver;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 60px; /* offset for fixed nav */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+    }
+
+    .hero-placeholder {
+      border: 2px solid silver;
+      width: 80%;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: silver;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* GALLERY */
+    .gallery-subsection {
+      margin: 40px 0;
+    }
+
+    .gallery-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .image-placeholder {
+      border: 2px solid silver;
+      width: 40%;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: silver;
+    }
+
+    /* BACK TO TOP BUTTON */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: black;
+      border: 2px solid silver;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      display: none;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    #backToTop:hover {
+      background-color: silver;
+      color: black;
+      box-shadow: 0 0 10px silver;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .image-placeholder {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="#concept">The Concept</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-placeholder">
+      <!-- INSERT HERO IMAGE HERE (16:10 aspect ratio) -->
+      HERO IMAGE PLACEHOLDER
+    </div>
+  </div>
+
+  <!-- SECTION 1: THE CONCEPT -->
+  <section id="concept">
+    <h1>The Concept</h1>
+    <!-- INSERT TEXT CONTENT FOR THE CONCEPT HERE -->
+  </section>
+
+  <!-- SECTION 2: GALLERY -->
+  <section id="gallery">
+    <h1>Gallery</h1>
+
+    <!-- SUBSECTION: ART -->
+    <div class="gallery-subsection">
+      <h2>Art</h2>
+      <div class="gallery-images">
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 1
+        </div>
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 2
+        </div>
+      </div>
+      <!-- INSERT TEXT DESCRIPTION FOR ART HERE -->
+    </div>
+
+    <!-- SUBSECTION: DEPTH -->
+    <div class="gallery-subsection">
+      <h2>Depth</h2>
+      <div class="gallery-images">
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 1
+        </div>
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 2
+        </div>
+      </div>
+      <!-- INSERT TEXT DESCRIPTION FOR DEPTH HERE -->
+    </div>
+
+    <!-- SUBSECTION: NARRATIVE -->
+    <div class="gallery-subsection">
+      <h2>Narrative</h2>
+      <div class="gallery-images">
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 1
+        </div>
+        <div class="image-placeholder">
+          <!-- INSERT IMAGE HERE (4:5 aspect ratio) -->
+          IMAGE 2
+        </div>
+      </div>
+      <!-- INSERT TEXT DESCRIPTION FOR NARRATIVE HERE -->
+    </div>
+  </section>
+
+  <!-- SECTION 3: ABOUT -->
+  <section id="about">
+    <h1>About</h1>
+    <!-- INSERT ABOUT CONTENT HERE -->
+  </section>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop">↑ Top</button>
+
+  <script>
+    // SHOW SECTIONS ON SCROLL (FADE-IN EFFECT)
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // BACK TO TOP BUTTON FUNCTIONALITY
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
