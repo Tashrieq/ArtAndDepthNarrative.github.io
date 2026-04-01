@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Single Page Website</title>
   
-  <!-- Google Font for headings (Calligraphy style alternative) -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* GENERAL STYLES */
     body {
       margin: 0;
       font-family: "Times New Roman", serif;
@@ -24,7 +22,6 @@
       color: white;
     }
 
-    /* NAVIGATION BAR */
     nav {
       position: fixed;
       top: 0;
@@ -54,29 +51,35 @@
       text-shadow: 0 0 5px silver;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
-      margin-top: 60px; /* offset for fixed nav */
+      margin-top: 60px;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50vh;
     }
 
     .hero-placeholder {
       border: 2px solid silver;
-      width: 80%;
+      width: 90%;
+      max-width: 1200px;
       aspect-ratio: 16 / 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: silver;
     }
-.hero-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+
+    /* GLOBAL IMAGE FIX */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .hero-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* SECTIONS */
     section {
       padding: 60px 20px;
@@ -104,15 +107,18 @@
 
     .image-placeholder {
       border: 2px solid silver;
-      width: 40%;
+      width: 45%;
+      max-width: 400px;
       aspect-ratio: 4 / 5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: silver;
     }
 
-    /* BACK TO TOP BUTTON */
+    .image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* BACK TO TOP */
     #backToTop {
       position: fixed;
       bottom: 20px;
@@ -132,17 +138,21 @@
       box-shadow: 0 0 10px silver;
     }
 
-    /* RESPONSIVE */
+    /* MOBILE */
     @media (max-width: 768px) {
       .image-placeholder {
         width: 80%;
       }
+
+      .hero {
+        height: 70vh;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <ul>
       <li><a href="#concept">The Concept</a></li>
@@ -151,129 +161,82 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-placeholder">
-      <img src="Hero.jpg"class="hero-img">
+      <img src="Hero.jpg">
     </div>
   </div>
 
-  <!-- SECTION 1: THE CONCEPT -->
+  <!-- CONCEPT -->
   <section id="concept">
     <h1>The Concept</h1>
-     ArtAndDepthNarrative is a philosophy rooted in the belief that art goes beyond surface level beauty, and becomes a vessel for meaning,
-	emotion and lived experience. It is not just about what is seen, but what is felt, understood and interpreted beneath the surface.
-<br>Breaking it down:<br/> 
-<br>
-<B>Art:</B>
-Creative expression in all its forms including visuals design, photography, fashion and personal style. It is the outward presentation, 
-the first impression and the language through which individuality is communicated.<br/> 
-<br>
-<B>Depth:</B>
-The substance that exists beneath that presentation. It reflects emotion, struggle, growth, psychology and real life experience. It is what gives art
- weight, turning something visually appealing into something that resonates on a deeper level.<br/> 
-<br>
-<B>Narrative:</B>
-The story being told. This is your journey, your perspective, your evolution and your truth It connects the art and the depth into something personal
- and authentic allowing others to not just see but understand.<br/> 
-<br>
-Together it represents art that carries meaning, tells a story, invites introspection, and rewards those who choose to look beyond the surface.
+    ArtAndDepthNarrative is a philosophy rooted in the belief that art goes beyond surface level beauty, and becomes a vessel for meaning,
+    emotion and lived experience. It is not just about what is seen, but what is felt, understood and interpreted beneath the surface.
+<br><br>
+
+<b>Art:</b>
+Creative expression in all its forms including visuals design, photography, fashion and personal style.<br><br>
+
+<b>Depth:</b>
+The substance that exists beneath that presentation.<br><br>
+
+<b>Narrative:</b>
+The story being told — your journey, your perspective, your evolution and your truth.
   </section>
 
-  <!-- SECTION 2: GALLERY -->
+  <!-- GALLERY -->
   <section id="gallery">
     <h1>Gallery</h1>
 
-    <!-- SUBSECTION: ART -->
     <div class="gallery-subsection">
       <h2>Art</h2>
       <div class="gallery-images">
-        <div class="image-placeholder">
-          <img src="Image1.jpg">
-        </div>
-        <div class="image-placeholder">          
-           <img src="Image2.jpg">
-        </div>
+        <div class="image-placeholder"><img src="Image1.jpg"></div>
+        <div class="image-placeholder"><img src="Image2.jpg"></div>
       </div>
-      Creative expression in all its forms including visuals design, photography, fashion and personal style. It is the outward presentation, 
-the first impression and the language through which individuality is communicated
     </div>
 
-    <!-- SUBSECTION: DEPTH -->
     <div class="gallery-subsection">
       <h2>Depth</h2>
       <div class="gallery-images">
-        <div class="image-placeholder">
-           <img src="Image3.jpg">
-        </div>
-        <div class="image-placeholder">
-           <img src="Image4.jpg">
-        </div>
+        <div class="image-placeholder"><img src="Image3.jpg"></div>
+        <div class="image-placeholder"><img src="Image4.jpg"></div>
       </div>
-      The substance that exists beneath that presentation. It reflects emotion, struggle, growth, psychology and real life experience. It is what gives art
- weight, turning something visually appealing into something that resonates on a deeper level
     </div>
 
-    <!-- SUBSECTION: NARRATIVE -->
     <div class="gallery-subsection">
       <h2>Narrative</h2>
       <div class="gallery-images">
-        <div class="image-placeholder">
-           <img src="Image5.jpg">
-        </div>
-        <div class="image-placeholder">
-          <img src="Image6.jpg">
-        </div>
+        <div class="image-placeholder"><img src="Image5.jpg"></div>
+        <div class="image-placeholder"><img src="Image6.jpg"></div>
       </div>
-      The story being told. This is your journey, your perspective, your evolution and your truth It connects the art and the depth into something personal
- and authentic allowing others to not just see but understand.
     </div>
   </section>
 
-  <!-- SECTION 3: ABOUT -->
+  <!-- ABOUT -->
   <section id="about">
     <h1>About</h1>
-   <meta charset="UTF-8">
-    <title>Clickable Username</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: "Times New Roman", serif;
-        }
-
-        a {
-            color: white; /* makes the hyperlink text white */
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
 
     <p>
-        <a href="https://www.instagram.com/tashrieq_23?igsh=bnVidWZ4MWVuZHc=" target="_blank">
-            Instagram: @tashrieq_23 [Click to veiw]
-			
-        </a>
-	</p>
-	<p>
-		 <a href="https://www.threads.com/@tashrieq_23?invite=0" target="_blank">
-            Threads: @tashrieq_23 [Click to veiw]
-        </a>
+      <a href="https://www.instagram.com/tashrieq_23?igsh=bnVidWZ4MWVuZHc=" target="_blank">
+        Instagram: @tashrieq_23 [Click to view]
+      </a>
+    </p>
+
+    <p>
+      <a href="https://www.threads.com/@tashrieq_23?invite=0" target="_blank">
+        Threads: @tashrieq_23 [Click to view]
+      </a>
     </p>
   </section>
 
-  <!-- BACK TO TOP BUTTON -->
+  <!-- BACK TO TOP -->
   <button id="backToTop">↑ Top</button>
 
   <script>
-    // SHOW SECTIONS ON SCROLL (FADE-IN EFFECT)
     const sections = document.querySelectorAll("section");
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -282,24 +245,18 @@ the first impression and the language through which individuality is communicate
       });
     }, { threshold: 0.1 });
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
 
-    // BACK TO TOP BUTTON FUNCTIONALITY
     const backToTop = document.getElementById("backToTop");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
     });
 
     backToTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+
 </body>
 </html>
